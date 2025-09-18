@@ -98,16 +98,28 @@ bas et très haut dans le graphique.
 ### Exercise 5
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x=total_pop,y=plastic_waste_per_cap,colour=continent))+
+  geom_point()
 ```
+
+    ## Warning: Removed 10 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-population-total-1.png)<!-- -->
 
 ``` r
-# insert code here
+ggplot(plastic_waste, aes(x=coastal_pop,y=plastic_waste_per_cap,colour=continent))+
+  geom_point()
 ```
 
-Réponse à la question…
+![](lab-02_files/figure-gfm/plastic-waste-population-coastal-1.png)<!-- -->
 
-## Conclusion
+Il ne semble pas vraiment y avoir une relation plus forte pour une des
+paires de variables. Les deux graphiques sont assez difficiles à
+interpréter puisque les valeurs extrèmes de population font en sorte que
+le reste des données sont concentrées à gauche des graphiques.Ainsi, on
+ne peut pas affirmer que les déchets sont plus produits par les
+habitants côtiers que le reste de la population. \## Conclusion
 
 Recréez la visualisation:
 
