@@ -91,7 +91,16 @@ Il ne semble pas vraiment y avoir une relation plus forte pour une des paires de
 ## Conclusion
 
 Recréez la visualisation:
-
 ```{r recreate-viz}
-# insert code here
+plastic_waste_coastal <- plastic_waste %>% 
+  mutate(coastal_pop_prop = coastal_pop / total_pop) %>%
+  filter(plastic_waste_per_cap < 3)
+
+ggplot(plastic_waste_coastal,aes(x=coastal_pop_prop,y=plastic_waste_per_cap, colour=continent))+
+  geom_point()+
+  geom_smooth(method="loess",se=TRUE, colour="black")+
+  labs(title = "Quantité de déchets plastiques Vs Proportion de la population côtière",subtitle = "Selon le continent",x="Proportion de la population côtière (Coastal/total population)",y="Nombre de déchets plastiques par habitant")
+  
 ```
+
+La courbe noire est la courbe tendance du nombre de déchets plastiques par habitants selon la proportion de la population côtière. Ainsi, on remarque que le nomdre de déchets augmente légèrement lorsque la proportion de la population côtière augmente.On remarque aussi que les pays produisant le plus de déchets par habitants selon la proportion de population côtière sont en Amérique du Nord, en Asie et en Europe. 
